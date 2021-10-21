@@ -1,0 +1,3 @@
+* add highest personal score
+	-This can be done through reading and writing to a text file
+* add PING display
