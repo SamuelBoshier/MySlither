@@ -1,3 +1,11 @@
-* add highest personal score
+* Add highest personal score
 	-This can be done through reading and writing to a text file
-* add PING display
+	-Log-in system to track multiple people?
+	
+* Add PING display
+
+* Add auto zoom
+
+* Add live personal record for each session
+
+? Add colour changing 
