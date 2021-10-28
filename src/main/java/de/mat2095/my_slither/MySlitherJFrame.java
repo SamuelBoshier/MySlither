@@ -452,4 +452,8 @@ final class MySlitherJFrame extends JFrame {
             this.allowModifyData = allowModifyData;
         }
     }
+
+    public MySlitherCanvas getCanvas() {
+        return canvas;
+    }
 }

@@ -1,6 +1,7 @@
 package de.mat2095.my_slither;
 
 import static de.mat2095.my_slither.MySlitherModel.PI2;
+import static java.awt.Color.*;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -43,6 +44,7 @@ final class MySlitherCanvas extends JPanel {
     private int zoom = 12;
     private long lastFrameTime;
     private double fps;
+    private Graphics2D g;
     final ScheduledExecutorService repaintThread;
 
     final MouseInput mouseInput = new MouseInput();
@@ -75,6 +77,7 @@ final class MySlitherCanvas extends JPanel {
         setBackground(BACKGROUND_COLOR);
         setForeground(FOREGROUND_COLOR);
 
+        //Delete this to remove manual zooming:
         addMouseWheelListener(e -> {
             zoom -= e.getWheelRotation();
             zoom = Math.max(zoom, 0);
@@ -134,7 +137,7 @@ final class MySlitherCanvas extends JPanel {
             return;
         }
 
-        Graphics2D g = (Graphics2D) graphics;
+        g = (Graphics2D) graphics;
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         int w = getWidth();
@@ -294,5 +297,14 @@ final class MySlitherCanvas extends JPanel {
         }
         g.drawString("FPS: " + Math.round(fps), 0, g.getFontMetrics().getAscent());
         lastFrameTime = newFrameTime;
+    }
+    public void gameOver(){
+        g.setColor(red);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        g.setColor(black);
+        g.drawString("You died.", getWidth()/2, getHeight()/2);
+        //int[] xCoords = {0, getWidth(), getWidth(), 0};
+        //int[] yCoords = {0, 0, getHeight(), getHeight()};
+        //g.fillPolygon(xCoords, yCoords, 4);
     }
 }

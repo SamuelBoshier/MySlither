@@ -8,4 +8,9 @@
 
 * Add live personal record for each session
 
-? Add colour changing 
+* Add Game Over screen - with 'processDead' in WebSocketClient?
+- onMessage case v, new function creating blank screen
+
+* Add New Game screen
+
+? Add colour changing

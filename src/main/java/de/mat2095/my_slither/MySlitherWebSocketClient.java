@@ -137,6 +137,7 @@ final class MySlitherWebSocketClient extends WebSocketClient {
                 processLeaderboard(data);
                 break;
             case 'v':
+                view.getCanvas().gameOver();
                 processDead(data);
                 break;
             case 'W':
