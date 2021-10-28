@@ -306,10 +306,7 @@ final class MySlitherCanvas extends JPanel {
             g.drawString("You died.", getWidth()/2, getHeight()/2);
         }
     }
-    public void gameOver(){
-        gameOver = true;
-        //int[] xCoords = {0, getWidth(), getWidth(), 0};
-        //int[] yCoords = {0, 0, getHeight(), getHeight()};
-        //g.fillPolygon(xCoords, yCoords, 4);
+    public void gameOver(boolean dead){
+        gameOver = dead;
     }
 }
