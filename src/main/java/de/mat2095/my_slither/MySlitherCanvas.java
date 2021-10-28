@@ -45,6 +45,7 @@ final class MySlitherCanvas extends JPanel {
     private long lastFrameTime;
     private double fps;
     private Graphics2D g;
+    private boolean gameOver = false;
     final ScheduledExecutorService repaintThread;
 
     final MouseInput mouseInput = new MouseInput();
@@ -297,12 +298,16 @@ final class MySlitherCanvas extends JPanel {
         }
         g.drawString("FPS: " + Math.round(fps), 0, g.getFontMetrics().getAscent());
         lastFrameTime = newFrameTime;
+
+        if(gameOver){
+            g.setColor(red);
+            g.fillRect(0, 0, getWidth(), getHeight());
+            g.setColor(black);
+            g.drawString("You died.", getWidth()/2, getHeight()/2);
+        }
     }
     public void gameOver(){
-        g.setColor(red);
-        g.fillRect(0, 0, getWidth(), getHeight());
-        g.setColor(black);
-        g.drawString("You died.", getWidth()/2, getHeight()/2);
+        gameOver = true;
         //int[] xCoords = {0, getWidth(), getWidth(), 0};
         //int[] yCoords = {0, 0, getHeight(), getHeight()};
         //g.fillPolygon(xCoords, yCoords, 4);
